@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,19 +34,14 @@ namespace ConsoleApp1
 
             if (int.TryParse(numExercicio, out int numero)) //verifica se o utilizador escolheu um número, caso contrário, retorna que o input estava incorreto
             {
-                Console.WriteLine("Sim");
-                
-
-            }
-            else
-            {
-                switch (numero) 
+                switch (numero)
                 {
                     case 1:
                         {
                             int compr, alt, area;
                             Console.WriteLine("Insira o comprimento do retângulo: ");
                             compr = int.Parse(Console.ReadLine()); //transforma o valor introduzido em tipo int
+
                             Console.WriteLine("Insira a altura do retângulo: ");
                             alt = int.Parse(Console.ReadLine()); //transforma o valor introduzido em tipo int
 
@@ -56,31 +53,190 @@ namespace ConsoleApp1
                         }
                     case 2:
                         {
+                            double bruto, segSocial, irs, liquido;
+
+                            Console.WriteLine("Introduza o seu salário bruto: ");
+                            bruto = double.Parse(Console.ReadLine());
+
+                            segSocial = bruto * 0.20;
+
+                            if (bruto < 500)
+                            {
+                                irs = 0;
+                            }
+                            else if (bruto >= 500 && bruto <= 1000)
+                            {
+                                irs = bruto * 0.12;
+                            }
+                            else if (bruto >= 1000 && bruto <= 1500)
+                            {
+                                irs = bruto * 0.15;
+                            }
+                            else
+                            {
+                                irs = bruto * 0.18;
+                            }
+
+                            liquido = bruto - segSocial - irs;
+
+                            Console.WriteLine("Salário Líquido: " + liquido);
 
                             break;
                         }
                     case 3:
                         {
+                            long num, fatorial = 1;
+
+                            Console.WriteLine("Introduza um número: ");
+                            num = long.Parse(Console.ReadLine());
+
+                            while(num>1)
+                            {
+                                fatorial = fatorial * num;
+                                num--;
+                            }
+
+                            Console.WriteLine("Fatorial: " + fatorial);
+
                             break;
                         }
                     case 4:
                         {
+                            int altura, comprimento;
+                            double area;
+
+                            Console.WriteLine("Introduza o comprimento do triângulo: ");
+                            comprimento = int.Parse(Console.ReadLine());
+
+                            Console.WriteLine("Introduza a altura do triângulo: ");
+                            altura = int.Parse(Console.ReadLine());
+
+                            area = (altura * comprimento) / 2D;
+
+                            Console.WriteLine("Área: " + area);
+
                             break;
                         }
                     case 5:
                         {
+                            double bruto, segSocial, irs = 0, liquido;
+                            int escalao;
+
+                            Console.WriteLine("Introduza o seu salário bruto: ");
+                            bruto = double.Parse(Console.ReadLine());
+
+                            segSocial = bruto * 0.20;
+
+                            if (bruto < 500)
+                            {
+                                escalao = 1;
+                            }
+                            else if (bruto >= 500 && bruto <= 1000)
+                            {
+                                escalao = 2;
+                            }
+                            else if (bruto >= 1000 && bruto <= 1500)
+                            {
+                                escalao = 3;
+                            }
+                            else
+                            {
+                                escalao = 4;
+                            }
+
+                            switch (escalao)
+                            {
+                                case 1:
+                                    irs = 0;
+                                    break;
+
+                                case 2:
+                                    irs = bruto * 0.12;
+                                    break;
+
+                                case 3:
+                                    irs = bruto * 0.15;
+                                    break;
+
+                                case 4:
+                                    irs = bruto * 0.18;
+                                    break;
+                            }
+
+                            liquido = bruto - segSocial - irs;
+
+                            Console.WriteLine("Salário Líquido: " + liquido);
+
                             break;
                         }
                     case 6:
                         {
+                            double bruto, segSocial, irs = 0, liquido;
+                            int escalao;
+
+                            Console.WriteLine("Introduza o seu salário bruto: ");
+                            bruto = double.Parse(Console.ReadLine());
+
+                            segSocial = bruto * 0.20;
+
+                            if (bruto < 500)
+                            {
+                                escalao = 1;
+                            }
+                            else if (bruto >= 500 && bruto <= 1000)
+                            {
+                                escalao = 2;
+                            }
+                            else if (bruto >= 1000 && bruto <= 1500)
+                            {
+                                escalao = 3;
+                            }
+                            else
+                            {
+                                escalao = 4;
+                            }
+
+                            switch (escalao)
+                            {
+                                case 1:
+                                    irs = 0;
+                                    break;
+
+                                case 2:
+                                    irs = bruto * 0.12;
+                                    break;
+
+                                case 3:
+                                    irs = bruto * 0.15;
+                                    break;
+
+                                case 4:
+                                    irs = bruto * 0.18;
+                                    break;
+                            }
+
+                            liquido = bruto - segSocial - irs;
+
+                            Console.WriteLine("Salário Líquido: " + liquido);
+                            Console.WriteLine("Desconto Segurança Social: " + segSocial);
+                            Console.WriteLine("Desconto IRS: " + irs);
+
                             break;
                         }
                     case 7:
                         {
-                            break;
-                        }
-                    case 8:
-                        {
+                            long num, fatorial = 1;
+
+                            Console.WriteLine("Introduza um número: ");
+                            num = long.Parse(Console.ReadLine());
+
+                            for(int i = 1; i <= num; i ++)
+                            {
+                                fatorial = fatorial * i;
+                            }
+
+                            Console.WriteLine("Fatorial: " + fatorial);
+
                             break;
                         }
                     default:
@@ -89,6 +245,11 @@ namespace ConsoleApp1
                             break;
                         }
                 }
+
+            }
+            else
+            {
+                Console.WriteLine("Exercício Inexistente!");
             }
 
             Console.Read();
