@@ -37,17 +37,17 @@ namespace Testes
                     Console.Clear();
 
                 Console.WriteLine("Insert your information:");
-                Console.WriteLine("Name: ");
+                Console.Write("Name: ");
                 info.Name = Console.ReadLine();
-                Console.WriteLine("Age: ");
+                Console.Write("Age: ");
                 info.Age = Console.ReadLine();
-                Console.WriteLine("Email: ");
+                Console.Write("Email: ");
                 info.Email = Console.ReadLine();
-                Console.WriteLine("Phone: ");
+                Console.Write("Phone: ");
                 info.Phone = Console.ReadLine();
-                Console.WriteLine("City: ");
+                Console.Write("City: ");
                 info.City = Console.ReadLine();
-                Console.WriteLine("Address: ");
+                Console.Write("Address: ");
                 info.Address = Console.ReadLine();
 
 
@@ -61,12 +61,30 @@ namespace Testes
                     write.Close();
             }
 
+                //File exists, reading file
+
+                var lines = File.ReadAllLines(filePath);
+            for (int i = 0; i < lines.Length; i++)
+            {
+                var fields = lines[i].Split(';');
+
+                info.Name = fields[0];
+                info.Age = fields[1];
+                info.Email = fields[2];
+                info.Phone = fields[3];
+                info.City = fields[4];
+                info.Address = fields[5];
+            }
+
+            Console.WriteLine("Name: " + info.Name);
+            Console.WriteLine("Age: " + info.Age);
+            Console.WriteLine("Email: " + info.Email);
+            Console.WriteLine("Phone: "+ info.Phone);
+            Console.WriteLine("City: " + info.City);
+            Console.WriteLine("Address: " + info.Address);
 
 
-
-
-
-                Console.ReadKey();
+            Console.ReadKey();
             }
         }
 
