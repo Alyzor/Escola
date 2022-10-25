@@ -1,0 +1,8 @@
+C:\Users\Pedro\source\repos\cum\Testes\Testes\bin\Debug\Testes.exe.config
+C:\Users\Pedro\source\repos\cum\Testes\Testes\bin\Debug\Testes.exe
+C:\Users\Pedro\source\repos\cum\Testes\Testes\bin\Debug\Testes.pdb
+C:\Users\Pedro\source\repos\cum\Testes\Testes\obj\Debug\Testes.csproj.AssemblyReference.cache
+C:\Users\Pedro\source\repos\cum\Testes\Testes\obj\Debug\Testes.csproj.SuggestedBindingRedirects.cache
+C:\Users\Pedro\source\repos\cum\Testes\Testes\obj\Debug\Testes.csproj.CoreCompileInputs.cache
+C:\Users\Pedro\source\repos\cum\Testes\Testes\obj\Debug\Testes.exe
+C:\Users\Pedro\source\repos\cum\Testes\Testes\obj\Debug\Testes.pdb
